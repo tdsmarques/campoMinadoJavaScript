@@ -1,2 +1,2 @@
 # campoMinadoJavaScript
-Aplicação JavaScript do famoso campo minado.
+Aplicação JavaScript do famoso jogo campo minado.
