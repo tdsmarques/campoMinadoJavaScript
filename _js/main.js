@@ -23,7 +23,7 @@ function criarTabela(arr) {
         var tabela = document.getElementById('tabelaJogo')
         while ( indice < 5) {
             var componente = document.createElement('td'); 
-            componente.innerHTML = '<div class="campoJogo">' + arr.shift() + '</div>'
+            componente.innerHTML = '<div class="campoJogo" onClick="validaCampoJogo(this)"><span class="valorCampo">' + arr.shift() + '</span></div>'
             linha.appendChild(componente)
             tabela.appendChild(linha)
             indice ++
@@ -37,6 +37,15 @@ function criarTabela(arr) {
         //tabuleiro.appendChild(div)
     })
 
+}
+
+function validaCampoJogo(obj) {
+    var valorDoCampo = obj.children[0].innerHTML
+    if (valorDoCampo == -1) {
+        obj.innerHTML = '<img id="imgBomba" src="_img/bomba.png" alt="bomba" width=80 height=80>' + '<audio src="_sound/explosao.mp3" autoplay>'
+    }else {
+        //TODO CRIAR EFEITO PARA MOSTRAR O NUMERO DO CAMPO
+    }   
 }
 
 function embaralharArray(arra1) {

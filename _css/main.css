@@ -16,11 +16,19 @@ body {
     width: 90px !important;
     height: 90px !important;
     background-color: Gainsboro;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
 }
 
 .campoJogo:hover {
     background-color: grey;
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
 }
 
 table {
@@ -30,4 +38,12 @@ table {
 
 tr {
     margin: 0;
+}
+
+.valorCampo {
+    visibility: hidden;
+}
+
+#imgBomba {
+    
 }
