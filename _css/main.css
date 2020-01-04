@@ -1,8 +1,33 @@
 body {
-    color: blue;
+    color: #2F4F4F;
     font-family: 'Righteous', cursive;
 }
 
 #imgGithub {
     width: 5em;
+}
+
+#campoMinado {
+    margin: 3em;
+    height: 35em;
+}
+
+.campoJogo {
+    width: 90px !important;
+    height: 90px !important;
+    background-color: Gainsboro;
+}
+
+.campoJogo:hover {
+    background-color: grey;
+    color: white;
+}
+
+table {
+    width: 50% !important;
+    margin: auto;
+}
+
+tr {
+    margin: 0;
 }
