@@ -12,14 +12,25 @@
 </head>
 <body class="text-center">
     <h1>Campo Minado</h1>
-    <button type="button" id="btnInicio" class="btn btn-success">Inicar Jogo</button>
-    <button type="button" id="btnPausa" class="btn btn-danger">Finalizar Jogo</button>
+    <!-- <button type="button" id="btnInicio" class="btn btn-success">Inicar Jogo</button>
+    <button type="button" id="btnPausa" class="btn btn-danger">Finalizar Jogo</button> -->
 
     <div id="campoMinado">
     </div>
 
     <span>Source Code: <a href="https://github.com/tdsmarques/campoMinadoJavaScript" 
         target="blank"><img id="imgGithub" src="_img/github.png" alt="Logo Github"></a></span>
+
+    <script charset="utf8">
+        var app = { nrComponentes:0 };
+        app.getComponente = function(nome) {
+            if (!app[nome]) {
+            app[nome] = {};
+            app[app.nrComponentes++] = nome;
+            }
+            return app[nome];
+        };
+    </script>
     <script src="_js/main.js"></script>
 </body>
 </html>
