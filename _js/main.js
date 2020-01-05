@@ -11,7 +11,9 @@ function criarTabela(arr) {
     var tabela = document.createElement('table');
     tabela.setAttribute("id", "tabelaJogo");
     tabuleiro.appendChild(tabela)
+    app.camposVirados = []
     app.arrayIdBombas = []
+    app.contagemAcertos = 0
 
     var linha1 = document.createElement('tr');
     var linha2 = document.createElement('tr');
@@ -64,9 +66,21 @@ function validaCampoJogo(obj) {
         arrayBombas.forEach(bomba => {
             bomba.innerHTML = '<img id="imgBomba" src="_img/bomba.png" alt="bomba" width=80 height=80>' + '<audio src="_sound/explosao.mp3" autoplay>'
         })
+        fimDeJogo('Você Perdeu!', false)
+        setInterval(function(){ $('#modal').modal('show') }, 5000);
 
     }else {
-        obj.innerHTML = '<span class="valorCampoVirado">' + valorDoCampo + '</span>' + '<audio src="_sound/sucesso.mp3" autoplay>'
+        if (app.camposVirados.indexOf(obj.id) === -1 ){
+            app.camposVirados.push(obj.id)
+            obj.innerHTML = '<span class="valorCampoVirado">' + valorDoCampo + '</span>' + '<audio src="_sound/sucesso.mp3" autoplay>'
+            app.contagemAcertos ++ 
+    
+            if(app.contagemAcertos == 20){
+                setInterval(function(){ $('#modal').modal('show') }, 5000);
+                fimDeJogo('Parabéns, Você Venceu!', true)
+            }
+            console.log(app.camposVirados)
+        }       
     }   
 }
 
@@ -102,4 +116,24 @@ function animation(element,time,initial,end){
             element.style.filter = "alpha(opacity="+opc+")";
         }
     },time * 10);
+}
+
+function fimDeJogo(msg, vitoria) {
+    var tabuleiro = document.getElementById('campoMinado')
+    var span = document.createElement('span')
+    var audio = document.createElement('audio')
+
+    if(vitoria == true){
+        span.setAttribute("class", "msgVitoria")
+        audio.setAttribute("src", "_sound/vitoria.mp3")
+        audio.setAttribute('autoplay','')
+        
+        span.innerText = msg
+        document.body.insertBefore(span, tabuleiro)
+        document.body.insertBefore(audio, tabuleiro)
+    }else {
+        span.setAttribute("class", "msgDerrota")
+        span.innerText = msg
+        document.body.insertBefore(span, tabuleiro)
+    }
 }

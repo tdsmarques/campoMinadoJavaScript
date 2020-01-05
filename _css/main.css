@@ -11,6 +11,7 @@ body {
     margin: 3em;
     height: 35em;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center
 }
@@ -54,4 +55,14 @@ tr {
 .valorCampoVirado {
     color: forestgreen;
     font-size: 30px;
+}
+
+.msgVitoria {
+    color: green;
+    font-size: 30px;
+}
+
+.msgDerrota {
+    color: red;
+    font-size: 20px;
 }
