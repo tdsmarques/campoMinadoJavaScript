@@ -79,7 +79,6 @@ function validaCampoJogo(obj) {
                 setInterval(function(){ $('#modal').modal('show') }, 5000);
                 fimDeJogo('Parabéns, Você Venceu!', true)
             }
-            console.log(app.camposVirados + "Foi Virado")
         }       
     }   
 }
