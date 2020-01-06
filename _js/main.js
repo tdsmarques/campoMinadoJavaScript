@@ -33,8 +33,7 @@ function criarTabela(arr) {
             componente.innerHTML = '<div class="campoJogo" id="campo'+ app.contador + '" onClick="validaCampoJogo(this)"><span class="valorCampo">' + vlr + '</span></div>'
 
             if (vlr == -1){
-                app.arrayIdBombas.push("campo" + app.contador)
-                console.log(app.arrayIdBombas)               
+                app.arrayIdBombas.push("campo" + app.contador)                              
             }
 
             linha.appendChild(componente)
@@ -44,6 +43,7 @@ function criarTabela(arr) {
         }
         indice = 0
     })
+    console.log("Local das Bombas: " + app.arrayIdBombas) 
 
     arr.forEach(campo => { 
         var div = document.createElement('div');
@@ -79,7 +79,7 @@ function validaCampoJogo(obj) {
                 setInterval(function(){ $('#modal').modal('show') }, 5000);
                 fimDeJogo('Parabéns, Você Venceu!', true)
             }
-            console.log(app.camposVirados)
+            console.log(app.camposVirados + "Foi Virado")
         }       
     }   
 }
